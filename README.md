@@ -1,6 +1,7 @@
 # Codeartoken
 
 * CLI tool to refresh [AWS CodeArtifact](https://aws.amazon.com/codeartifact/) tokens for maven using the `settings.xml` file.
+* You can download the release binaries for Linux/macOS/Windows [here](https://github.com/manojkarthick/codeartoken/releases/).
 
 ```shell
 ❯ ./codeartoken --help
@@ -19,4 +20,11 @@ GLOBAL OPTIONS:
    --server value, -s value    (default: "codeartifact")
    --settings value, -x value  (default: "$HOME/.m2/settings.xml")
    --help, -h                  show help (default: false)
+```
+
+## Troubleshooting
+
+On macOS, if you encounter the error `“codeartoken” cannot be opened because the developer cannot be verified.`, run the following:
+```shell
+xattr -d com.apple.quarantine ./codeartoken
 ```
