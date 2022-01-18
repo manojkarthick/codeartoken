@@ -1,0 +1,38 @@
+before:
+  hooks:
+    - go mod download
+builds:
+  - main: ./main.go
+    id: "codeartoken"
+    binary: "codeartoken"
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+archives:
+  -
+    id: "codeartoken"
+    name_template: "{{ .ProjectName }}-{{ .Version }}-{{ .Os }}-{{ .Arch }}"
+    replacements:
+      amd64: x64
+      386: i386
+    format_overrides:
+      - goos: windows
+        format: zip
+universal_binaries:
+  - replace: true
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
