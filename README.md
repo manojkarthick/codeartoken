@@ -2,6 +2,7 @@
 
 * CLI tool to refresh [AWS CodeArtifact](https://aws.amazon.com/codeartifact/) tokens for maven using the `settings.xml` file.
 * You can download the release binaries for Linux/macOS/Windows [here](https://github.com/manojkarthick/codeartoken/releases/).
+* You can also install using homebrew by running: `brew tap manojkarthick/codeartoken && brew install codeartoken`
 
 ```shell
 ❯ ./codeartoken --help
